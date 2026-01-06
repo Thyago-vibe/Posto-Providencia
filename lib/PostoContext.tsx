@@ -21,6 +21,7 @@ export const PostoProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     const loadPostoData = async () => {
         try {
             setLoading(true);
+            setError(null);
             const { data: { session } } = await supabase.auth.getSession();
 
             if (!session?.user) {
